@@ -19,11 +19,26 @@ async function gsrun(cl) {
   const gsapi = google.sheets({ version: 'v4', auth: cl });
   const opt = {
       spreadsheetId: '13cuR6pcc0iSkA-urNSJjWC8KXIi3Fht3OuvGwj9RnjQ',
-      range: 'Yeet!A1:D7'
+      range: 'Yeet!A2:E7'
   }
 
   let data = await gsapi.spreadsheets.values.get(opt);
   let dataArray = data.data.values;
+
+  let finalData = []
+  for(let i=0; i < dataArray.length; i++){
+      let newObj = {
+          title: dataArray[i][0],
+          author: dataArray[i][1],
+          genre: dataArray[i][2],
+          year: dataArray[i][3],
+          description: dataArray[i][4]
+      }
+      finalData.push(newObj);
+      continue;
+  }
+
+  console.log(JSON.stringify(finalData));
 }
 
 // https://www.youtube.com/watch?v=MiPpQzW_ya0
