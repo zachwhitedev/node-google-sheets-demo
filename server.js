@@ -38,7 +38,7 @@ async function gsrun(cl) {
       continue;
   }
 
-  console.log(JSON.stringify(finalData));
+  console.log(finalData);
 }
 
 // https://www.youtube.com/watch?v=MiPpQzW_ya0
